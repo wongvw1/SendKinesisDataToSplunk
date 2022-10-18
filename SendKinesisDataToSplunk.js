@@ -1,7 +1,10 @@
 /**
- * Splunk logging for AWS Lambda
+ * Splunk logging using AWS Lambda from Kinesis Data Stream
  *
- * This function logs to a Splunk host using Splunk's HTTP event collector API.
+ * This function processes event triggers from a Kinesis Data Stream and performs the following:
+ * a. loop through each Kinesis record
+ * b. gunzip the record data buffer to extract the CloudWatch Log records
+ * c. send each CloudWatch log record to a Splunk host using Splunk's HTTP event collector API.
  *
  * Define the following Environment Variables in the console below to configure
  * this function to log to your Splunk host:
